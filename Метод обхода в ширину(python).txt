@@ -1,0 +1,26 @@
+def bfs(graph, start):
+    # Инициализация очереди и списка посещённых узлов
+    queue = [start]
+    visited = [start]
+
+    while queue:
+        # Извлекаем первый узел из очереди
+        node = queue.pop(0)
+        print(node)  # Обрабатываем узел (например, выводим)
+
+        # Обходим всех соседей текущего узла
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                queue.append(neighbor)
+                visited.append(neighbor)
+
+# граф
+graph = {
+    1: [2, 3],
+    2: [4, 5],
+    3: [6],
+    4: [],
+    5: [6],
+    6: []
+}
+bfs(graph, 1)
